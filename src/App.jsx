@@ -1,5 +1,9 @@
+import Extensions from "./pages/Extensions";
+
 function App() {
-  return <>Initial text</>;
+  return <>
+  <Extensions />
+  </>;
 }
 
 export default App;
