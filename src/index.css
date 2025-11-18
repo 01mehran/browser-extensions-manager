@@ -35,3 +35,13 @@
     font-family: var(--font-notoSans);
   }
 }
+
+@layer components {
+  .tabs {
+    @apply border-primary-light-300 bg-primary-light-100 dark:bg-primary-dark-600 dark:text-primary-light-200 dark:hover:ring-primary-light-200 dark:focus:outline-primary-light-200 cursor-pointer rounded-full border px-4 py-1 text-lg font-normal shadow-sm ring-red-700 outline-red-700 transition-all duration-200 hover:ring-1 focus:outline-1 dark:border-0;
+  }
+
+  .active-tab {
+    @apply text-primary-light-100 dark:text-primary-dark-700 bg-red-700 ring-1 ring-red-700 ring-offset-2 hover:opacity-95 hover:ring-0 dark:bg-red-500/85 dark:ring-0 dark:ring-transparent dark:ring-offset-0;
+  }
+}

@@ -6,6 +6,20 @@ export default function Extensions() {
       <section className="mx-auto lg:max-w-[1000px]">
         {/* Header */}
         <Header />
+        <main className="mt-8">
+          <div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:justify-between md:space-y-0">
+            <article>
+              <h2 className="text-primary-dark-800 dark:text-primary-light-200 text-xl font-bold">
+                Extensions List
+              </h2>
+            </article>
+            <article className="flex items-center space-x-3">
+              <button className={`tabs active-tab`}>All</button>
+              <button className={`tabs`}>Active</button>
+              <button className={`tabs`}>Inactive</button>
+            </article>
+          </div>
+        </main>
       </section>
     </div>
   );
