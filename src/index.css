@@ -1,0 +1,35 @@
+/* Font; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Font family */
+  --font-notoSans: 'Noto Sans', sans-serif;
+
+  /* Dark mode */
+  --color-primary-dark-600: oklch(37% 0.03 226deg);
+  --color-primary-dark-700: oklch(24% 0.04 225deg);
+  --color-primary-dark-800: oklch(17% 0.04 226deg);
+  --color-primary-dark-900: oklch(14% 0.06 227deg);
+
+  /* Light mode */
+  --color-primary-light-100: oklch(99% 0.01 200deg);
+  --color-primary-light-200: oklch(93% 0 0deg);
+  --color-primary-light-300: oklch(90% 0.02 217deg);
+  --color-primary-light-400: oklch(78% 0 0deg);
+
+  /* Red */
+  --color-red-400: oklch(64% 0.2 3deg);
+  --color-red-500: oklch(56% 0.18 3deg);
+  --color-red-700: oklch(44% 0.2 3deg);
+
+  /* Gradients */
+  /* gradient-light ---> 180deg, #ebf2fc 0%, #eef8f9 100% */
+  /* gradient-dark ---> 180deg, #040918 0%, #091540 100% */
+}
+
+@layer base {
+  body {
+    font-family: var(--font-notoSans);
+  }
+}
