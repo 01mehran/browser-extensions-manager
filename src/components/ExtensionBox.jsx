@@ -1,0 +1,34 @@
+// Image;
+import logotest from '@images/logo-devlens.svg';
+
+export default function ExtensionBox() {
+  return (
+    <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex flex-col gap-4 rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
+      {/* Upper */}
+      <header className="flex items-start gap-4">
+        <img src={logotest} alt="extensions logo" />
+        <div className="space-y-2">
+          <h3 className="text-primary-dark-700 dark:text-primary-light-100 text-2xl font-bold">
+            DevLens
+          </h3>
+          <p className="text-primary-dark-600 dark:text-primary-light-400/75 leading-6 font-medium">
+            Quickly inspect page layouts and visualize element boundaries.
+          </p>
+        </div>
+      </header>
+
+      {/* Buttons */}
+      <footer className="mt-4 flex items-center justify-between">
+        {/* Remove button */}
+        <button className="text-primary-dark-900 border-primary-light-400 dark:border-primary-dark-600 dark:text-primary-light-200 text-md hover:text-primary-light-200 dark:hover:text-primary-dark-900 cursor-pointer rounded-full border px-5 py-2 font-medium transition-all duration-200 hover:bg-red-700 focus:outline-1 focus:outline-red-700 dark:hover:bg-red-500 dark:focus:bg-red-500">
+          Remove
+        </button>
+        {/* Toggle button */}
+        <label className="inline-flex cursor-pointer items-center">
+          <input type="checkbox" className="peer sr-only" />
+          <div className="peer bg-primary-light-400 dark:bg-primary-dark-600 relative h-5 w-9 rounded-full peer-checked:bg-red-700 after:absolute after:start-0.5 after:top-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full dark:peer-checked:bg-red-500"></div>
+        </label>
+      </footer>
+    </main>
+  );
+}

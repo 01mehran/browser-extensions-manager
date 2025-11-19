@@ -9,21 +9,21 @@
   --font-notoSans: 'Noto Sans', sans-serif;
 
   /* Dark mode */
-  --color-primary-dark-600: oklch(37% 0.03 226deg);
-  --color-primary-dark-700: oklch(24% 0.04 225deg);
-  --color-primary-dark-800: oklch(17% 0.04 226deg);
-  --color-primary-dark-900: oklch(14% 0.06 227deg);
+  --color-primary-dark-600: oklch(0.465 0.0265 271.98);
+  --color-primary-dark-700: oklch(0.3364 0.0386 270.01);
+  --color-primary-dark-800: hsl(226, 25%, 17%);
+  --color-primary-dark-900: oklch(0.2152 0.0818 267.2);
 
   /* Light mode */
-  --color-primary-light-100: oklch(99% 0.01 200deg);
-  --color-primary-light-200: oklch(93% 0 0deg);
-  --color-primary-light-300: oklch(90% 0.02 217deg);
-  --color-primary-light-400: oklch(78% 0 0deg);
+  --color-primary-light-100: oklch(0.9927 0.0026 228.78);
+  --color-primary-light-200: oklch(0.9466 0 0);
+  --color-primary-light-300: oklch(0.9092 0.0292 259.94);
+  --color-primary-light-400: oklch(0.8294 0 0);
 
   /* Red */
-  --color-red-400: oklch(64% 0.2 3deg);
-  --color-red-500: oklch(56% 0.18 3deg);
-  --color-red-700: oklch(44% 0.2 3deg);
+  --color-red-400: oklch(0.6701 0.1862 26.35);
+  --color-red-500: oklch(0.6119 0.1893 27.23);
+  --color-red-700: oklch(0.5346 0.1993 29.02);
 
   /* Gradients */
   /* gradient-light ---> 180deg, #ebf2fc 0%, #eef8f9 100% */
@@ -38,10 +38,10 @@
 
 @layer components {
   .tabs {
-    @apply border-primary-light-300 bg-primary-light-100 dark:bg-primary-dark-600 dark:text-primary-light-200 dark:hover:ring-primary-light-200 dark:focus:outline-primary-light-200 cursor-pointer rounded-full border px-4 py-1 text-lg font-normal shadow-sm ring-red-700 outline-red-700 transition-all duration-200 hover:ring-1 focus:outline-1 dark:border-0;
+    @apply border-primary-light-300 bg-primary-light-100 dark:bg-primary-dark-700 dark:text-primary-light-300 dark:hover:ring-primary-light-200 dark:focus:outline-primary-light-200 cursor-pointer rounded-full border px-4 py-1 text-lg font-normal shadow-sm ring-red-700 outline-red-700 transition-all duration-200 hover:ring-1 focus:outline-1 dark:border-0;
   }
 
   .active-tab {
-    @apply text-primary-light-100 dark:text-primary-dark-700 bg-red-700 ring-1 ring-red-700 ring-offset-2 hover:opacity-95 hover:ring-0 dark:bg-red-500/85 dark:ring-0 dark:ring-transparent dark:ring-offset-0;
+    @apply text-primary-light-100 dark:text-primary-dark-900 bg-red-700 font-bold ring-1 ring-red-700 ring-offset-2 hover:opacity-95 hover:ring-0 dark:bg-red-500 dark:ring-0 dark:ring-transparent dark:ring-offset-0;
   }
 }
