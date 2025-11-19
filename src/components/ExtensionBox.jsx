@@ -1,18 +1,17 @@
-// Image;
-import logotest from '@images/logo-devlens.svg';
+export default function ExtensionBox({ extension }) {
+  const { name, description, logo } = extension;
 
-export default function ExtensionBox() {
   return (
     <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex flex-col gap-4 rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
       {/* Upper */}
       <header className="flex items-start gap-4">
-        <img src={logotest} alt="extensions logo" />
+        <img src={logo} alt="extensions logo" />
         <div className="space-y-2">
           <h3 className="text-primary-dark-700 dark:text-primary-light-100 text-2xl font-bold">
-            DevLens
+            {name}
           </h3>
           <p className="text-primary-dark-600 dark:text-primary-light-400/75 leading-6 font-medium">
-            Quickly inspect page layouts and visualize element boundaries.
+            {description}
           </p>
         </div>
       </header>
