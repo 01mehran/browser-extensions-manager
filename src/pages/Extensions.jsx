@@ -4,8 +4,16 @@ import ExtensionBox from '@components/ExtensionBox';
 
 // Data;
 import { extensionslist } from '@/data/ExtensionsList';
+import { useState } from 'react';
 
 export default function Extensions() {
+  const [initilaExtensions, setInitialExtensions] = useState(extensionslist);
+
+  function handleRemoveExt(name) {
+    setInitialExtensions((prevExt) =>
+      prevExt.filter((ext) => ext.name !== name),
+    );
+  }
 
   return (
     <div className="min-h-dvh bg-linear-[180deg,#ebf2fc_0%,#eef8f9_100%] px-2 pt-3 md:pt-4 dark:bg-linear-[180deg,#040918_0%,#091540_100%]">
@@ -29,8 +37,12 @@ export default function Extensions() {
 
           {/* Extessions List */}
           <section className="mt-8 grid grid-cols-1 gap-4 px-1 pb-4 sm:grid-cols-2 lg:grid-cols-3">
-            {extensionslist.map((ext) => (
-              <ExtensionBox key={ext.name} extension={ext} />
+            {initilaExtensions.map((ext) => (
+              <ExtensionBox
+                key={ext.name}
+                extension={ext}
+                handleRemoveExt={handleRemoveExt}
+              />
             ))}
           </section>
         </main>

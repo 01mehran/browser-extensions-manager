@@ -1,4 +1,4 @@
-export default function ExtensionBox({ extension }) {
+export default function ExtensionBox({ extension, handleRemoveExt }) {
   const { name, description, logo } = extension;
 
   return (
@@ -19,7 +19,7 @@ export default function ExtensionBox({ extension }) {
       {/* Buttons */}
       <footer className="mt-4 flex items-center justify-between">
         {/* Remove button */}
-        <button className="text-primary-dark-900 border-primary-light-400 dark:border-primary-dark-600 dark:text-primary-light-200 text-md hover:text-primary-light-200 dark:hover:text-primary-dark-900 cursor-pointer rounded-full border px-5 py-2 font-medium transition-all duration-200 hover:bg-red-700 focus:outline-1 focus:outline-red-700 dark:hover:bg-red-500 dark:focus:bg-red-500">
+        <button onClick={() => handleRemoveExt(name)} className="text-primary-dark-900 border-primary-light-400 dark:border-primary-dark-600 dark:text-primary-light-200 text-md hover:text-primary-light-200 dark:hover:text-primary-dark-900 cursor-pointer rounded-full border px-5 py-2 font-medium transition-all duration-200 hover:bg-red-700 focus:outline-1 focus:outline-red-700 dark:hover:bg-red-500 dark:focus:bg-red-500">
           Remove
         </button>
         {/* Toggle button */}
