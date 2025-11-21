@@ -6,7 +6,7 @@ export default function ExtensionBox({
   const { name, description, logo, isActive } = extension;
 
   return (
-    <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex flex-col gap-4 rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
+    <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex h-[200px] flex-col justify-between rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
       {/* Upper */}
       <header className="flex items-start gap-4">
         <img src={logo} alt="extensions logo" />
@@ -21,11 +21,11 @@ export default function ExtensionBox({
       </header>
 
       {/* Buttons */}
-      <footer className="mt-4 flex items-center justify-between">
+      <footer className="flex items-center justify-between">
         {/* Remove button */}
         <button
           onClick={() => handleRemoveExt(name)}
-          className="text-primary-dark-900 border-primary-light-400 dark:border-primary-dark-600 dark:text-primary-light-200 text-md hover:text-primary-light-200 dark:hover:text-primary-dark-900 cursor-pointer rounded-full border px-5 py-2 font-medium transition-all duration-200 hover:bg-red-700 focus:outline-1 focus:outline-red-700 dark:hover:bg-red-500 dark:focus:bg-red-500"
+          className="text-primary-dark-900 border-primary-light-400 dark:border-primary-dark-600 dark:text-primary-light-200 text-md hover:text-primary-light-200 dark:hover:text-primary-dark-900 cursor-pointer rounded-full border px-5 py-2 font-medium transition-all duration-200 hover:bg-red-700 focus:outline-1 focus:outline-red-700 active:scale-85 dark:hover:bg-red-500 dark:focus:bg-red-500"
         >
           Remove
         </button>

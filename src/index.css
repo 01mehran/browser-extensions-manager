@@ -38,10 +38,10 @@
 
 @layer components {
   .tabs {
-    @apply border-primary-light-300 bg-primary-light-100 dark:bg-primary-dark-700 dark:text-primary-light-300 dark:hover:ring-primary-light-200 dark:focus:outline-primary-light-200 cursor-pointer rounded-full border px-4 py-1 text-lg font-normal shadow-sm ring-red-700 outline-red-700 transition-all duration-200 hover:ring-1 focus:outline-1 dark:border-0;
+    @apply border-primary-light-300 bg-primary-light-100 dark:bg-primary-dark-700 dark:text-primary-light-300 dark:hover:ring-primary-light-200 dark:focus:outline-primary-light-200 dark:hover:bg-primary-dark-600 cursor-pointer rounded-full px-4 py-1 text-lg font-normal shadow-sm transition-all duration-150 hover:shadow-[1px_1px_3px_rgba(0,0,0,.50)];
   }
 
   .active-tab {
-    @apply text-primary-light-100 dark:text-primary-dark-900 bg-red-700 font-bold ring-1 ring-red-700 ring-offset-2 hover:opacity-95 hover:ring-0 dark:bg-red-500 dark:ring-0 dark:ring-transparent dark:ring-offset-0;
+    @apply text-primary-light-100 dark:text-primary-dark-900 bg-red-700 font-medium ring-1 ring-red-700 ring-offset-2 dark:bg-red-500 dark:ring-0 dark:ring-transparent dark:ring-offset-0 dark:hover:bg-red-500;
   }
 }
