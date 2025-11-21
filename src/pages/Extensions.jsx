@@ -15,6 +15,24 @@ export default function Extensions() {
     );
   }
 
+  function handleToggleExt(name) {
+    //---- Firt way;
+    setInitialExtensions((prev) =>
+      prev.map((ext) =>
+        ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
+      ),
+    );
+
+    // ---- Second way
+    // const updatedToggle = initilaExtensions.map((ext) => {
+    //   if (ext.name === name) {
+    //     return { ...ext, isActive: !ext.isActive };
+    //   }
+    // });
+
+    // setInitialExtensions(updatedToggle);
+  }
+
   return (
     <div className="min-h-dvh bg-linear-[180deg,#ebf2fc_0%,#eef8f9_100%] px-2 pt-3 md:pt-4 dark:bg-linear-[180deg,#040918_0%,#091540_100%]">
       <section className="mx-auto lg:max-w-6xl xl:max-w-6xl">
@@ -42,6 +60,7 @@ export default function Extensions() {
                 key={ext.name}
                 extension={ext}
                 handleRemoveExt={handleRemoveExt}
+                handleToggleExt={handleToggleExt}
               />
             ))}
           </section>
