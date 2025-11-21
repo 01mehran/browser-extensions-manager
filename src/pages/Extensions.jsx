@@ -8,6 +8,8 @@ import { useState } from 'react';
 
 export default function Extensions() {
   const [initilaExtensions, setInitialExtensions] = useState(extensionslist);
+  const [filteredExtensions, setFilteredExtensions] = useState(extensionslist);
+  const [isActiveTab, setActiveTab] = useState('all');
 
   function handleRemoveExt(name) {
     setInitialExtensions((prevExt) =>
@@ -17,7 +19,7 @@ export default function Extensions() {
 
   function handleToggleExt(name) {
     //---- Firt way;
-    setInitialExtensions((prev) =>
+    setFilteredExtensions((prev) =>
       prev.map((ext) =>
         ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
       ),
@@ -31,6 +33,24 @@ export default function Extensions() {
     // });
 
     // setInitialExtensions(updatedToggle);
+  }
+
+  function showAllExt() {
+    setActiveTab('all');
+
+    setFilteredExtensions(initilaExtensions);
+  }
+
+  function showActiveExt() {
+    setActiveTab('active');
+
+    setFilteredExtensions(initilaExtensions.filter((ext) => ext.isActive));
+  }
+
+  function showInActiveExt() {
+    setActiveTab('inActive');
+
+    setFilteredExtensions(initilaExtensions.filter((ext) => !ext.isActive));
   }
 
   return (
@@ -47,15 +67,30 @@ export default function Extensions() {
               </h2>
             </article>
             <article className="flex items-center space-x-3">
-              <button className={`tabs active-tab`}>All</button>
-              <button className={`tabs`}>Active</button>
-              <button className={`tabs`}>Inactive</button>
+              <button
+                className={`tabs ${isActiveTab === 'all' && 'active-tab'}`}
+                onClick={showAllExt}
+              >
+                All
+              </button>
+              <button
+                className={`tabs ${isActiveTab === 'active' && 'active-tab'}`}
+                onClick={showActiveExt}
+              >
+                Active
+              </button>
+              <button
+                className={`tabs ${isActiveTab === 'inActive' && 'active-tab'}`}
+                onClick={showInActiveExt}
+              >
+                Inactive
+              </button>
             </article>
           </section>
 
           {/* Extessions List */}
           <section className="mt-8 grid grid-cols-1 gap-4 px-1 pb-4 sm:grid-cols-2 lg:grid-cols-3">
-            {initilaExtensions.map((ext) => (
+            {filteredExtensions.map((ext) => (
               <ExtensionBox
                 key={ext.name}
                 extension={ext}
