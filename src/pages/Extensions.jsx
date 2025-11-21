@@ -9,7 +9,8 @@ import { useState } from 'react';
 export default function Extensions() {
   const [initilaExtensions, setInitialExtensions] = useState(extensionslist);
   const [filteredExtensions, setFilteredExtensions] = useState(extensionslist);
-  const [isActiveTab, setActiveTab] = useState('all');
+  const [isActiveTab, setActiveTab] = useState(localStorage.getItem("tab") || "all");
+
 
   function handleRemoveExt(name) {
     setFilteredExtensions((prevExt) =>
@@ -35,24 +36,27 @@ export default function Extensions() {
 
   function showAllExt() {
     setActiveTab('all');
+    localStorage.setItem("tab", "all")
 
     setFilteredExtensions(initilaExtensions);
   }
 
   function showActiveExt() {
     setActiveTab('active');
+    localStorage.setItem("tab", "active")
 
     setFilteredExtensions(initilaExtensions.filter((ext) => ext.isActive));
   }
 
   function showInActiveExt() {
     setActiveTab('inActive');
+    localStorage.setItem("tab", "inActive")
 
     setFilteredExtensions(initilaExtensions.filter((ext) => !ext.isActive));
   }
 
   return (
-    <div className="min-h-dvh bg-linear-[180deg,#ebf2fc_0%,#eef8f9_100%] px-2 pt-3 md:pt-4 dark:bg-linear-[180deg,#040918_0%,#091540_100%]">
+    <div className="min-h-dvh bg-linear-[180deg,#ebf2fc_0%,#eef8f9_100%] px-2 pt-2 md:pt-3 dark:bg-linear-[180deg,#040918_0%,#091540_100%]">
       <section className="mx-auto lg:max-w-6xl xl:max-w-6xl">
         {/* Header */}
         <Header />
