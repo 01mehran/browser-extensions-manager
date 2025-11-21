@@ -12,27 +12,25 @@ export default function Extensions() {
   const [isActiveTab, setActiveTab] = useState('all');
 
   function handleRemoveExt(name) {
-    setInitialExtensions((prevExt) =>
+    setFilteredExtensions((prevExt) =>
       prevExt.filter((ext) => ext.name !== name),
     );
   }
 
   function handleToggleExt(name) {
-    //---- Firt way;
-    setFilteredExtensions((prev) =>
-      prev.map((ext) =>
-        ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
-      ),
+    const updated = initilaExtensions.map((ext) =>
+      ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
     );
 
-    // ---- Second way
-    // const updatedToggle = initilaExtensions.map((ext) => {
-    //   if (ext.name === name) {
-    //     return { ...ext, isActive: !ext.isActive };
-    //   }
-    // });
+    setInitialExtensions(updated);
 
-    // setInitialExtensions(updatedToggle);
+    if (isActiveTab === 'all') {
+      setFilteredExtensions(updated);
+    } else if (isActiveTab === 'active') {
+      setFilteredExtensions(updated.filter((ext) => ext.isActive));
+    } else if (isActiveTab === 'inActive') {
+      setFilteredExtensions(updated.filter((ext) => !ext.isActive));
+    }
   }
 
   function showAllExt() {
