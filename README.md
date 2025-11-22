@@ -5,6 +5,12 @@ The app allows users to view, activate/deactivate, and remove extensions in a sm
 
 ---
 
+## Screenshots 📷
+![demo-image](./public/dark-demo.png) ![demo-image](./public/light-demo.png)
+
+### Click [here](https://browser-extensions-managerr.netlify.app/) to watch online demo
+
+---
 ## Features 📝
 
  
@@ -78,3 +84,8 @@ Designed to work perfectly across:
 ## Contributions 🙌
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## contact me 
+[LinkedIn](https://www.linkedin.com/in/mehrandev7) 💼
+[Email me](mailto:mehranmohamadi1311@gmail.com) 📧
+
