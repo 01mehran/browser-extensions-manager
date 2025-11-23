@@ -4,8 +4,9 @@ import ExtensionBox from '@components/ExtensionBox';
 
 // Data;
 import { extensionslist } from '@/data/ExtensionsList';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+// Libraries;
+import { useState, useEffect } from 'react';
 
 export default function Extensions() {
   const [initilaExtensions, setInitialExtensions] = useState(() => {
@@ -14,7 +15,7 @@ export default function Extensions() {
   });
   const [filteredExtensions, setFilteredExtensions] = useState([]);
   const [isActiveTab, setActiveTab] = useState(() => {
-    return localStorage.getItem('tab') || 'all';
+    return localStorage.getItem('currentTab') || 'all';
   });
 
   // Load data from LocalStorage;
@@ -48,25 +49,19 @@ export default function Extensions() {
   // Show all extensions;
   function showAllExt() {
     setActiveTab('all');
-    localStorage.setItem('tab', 'all');
-
-    setFilteredExtensions(initilaExtensions);
+    localStorage.setItem('currentTab', 'all');
   }
 
   // Show active extensins;
   function showActiveExt() {
     setActiveTab('active');
-    localStorage.setItem('tab', 'active');
-
-    setFilteredExtensions(initilaExtensions.filter((ext) => ext.isActive));
+    localStorage.setItem('currentTab', 'active');
   }
 
   // Show inActive extensions;
   function showInActiveExt() {
     setActiveTab('inActive');
-    localStorage.setItem('tab', 'inActive');
-
-    setFilteredExtensions(initilaExtensions.filter((ext) => !ext.isActive));
+    localStorage.setItem('currentTab', 'inActive');
   }
 
   return (
