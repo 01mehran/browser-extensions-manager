@@ -5,52 +5,66 @@ import ExtensionBox from '@components/ExtensionBox';
 // Data;
 import { extensionslist } from '@/data/ExtensionsList';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Extensions() {
-  const [initilaExtensions, setInitialExtensions] = useState(extensionslist);
-  const [filteredExtensions, setFilteredExtensions] = useState(extensionslist);
-  const [isActiveTab, setActiveTab] = useState(localStorage.getItem("tab") || "all");
+  const [initilaExtensions, setInitialExtensions] = useState(() => {
+    const savedExtensions = localStorage.getItem('extensions');
+    return savedExtensions ? JSON.parse(savedExtensions) : extensionslist;
+  });
+  const [filteredExtensions, setFilteredExtensions] = useState([]);
+  const [isActiveTab, setActiveTab] = useState(() => {
+    return localStorage.getItem('tab') || 'all';
+  });
 
+  // Load data from LocalStorage;
+  useEffect(() => {
+    if (isActiveTab === 'all') {
+      setFilteredExtensions(initilaExtensions);
+    } else if (isActiveTab === 'active') {
+      setFilteredExtensions(initilaExtensions.filter((ext) => ext.isActive));
+    } else if (isActiveTab === 'inActive') {
+      setFilteredExtensions(initilaExtensions.filter((ext) => !ext.isActive));
+    }
+  }, [initilaExtensions, isActiveTab]);
 
+  // Remove extension;
   function handleRemoveExt(name) {
     setFilteredExtensions((prevExt) =>
       prevExt.filter((ext) => ext.name !== name),
     );
   }
 
+  // Active / InActive extensions;
   function handleToggleExt(name) {
     const updated = initilaExtensions.map((ext) =>
       ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
     );
 
     setInitialExtensions(updated);
-
-    if (isActiveTab === 'all') {
-      setFilteredExtensions(updated);
-    } else if (isActiveTab === 'active') {
-      setFilteredExtensions(updated.filter((ext) => ext.isActive));
-    } else if (isActiveTab === 'inActive') {
-      setFilteredExtensions(updated.filter((ext) => !ext.isActive));
-    }
+    localStorage.setItem('extensions', JSON.stringify(updated));
   }
 
+  // Show all extensions;
   function showAllExt() {
     setActiveTab('all');
-    localStorage.setItem("tab", "all")
+    localStorage.setItem('tab', 'all');
 
     setFilteredExtensions(initilaExtensions);
   }
 
+  // Show active extensins;
   function showActiveExt() {
     setActiveTab('active');
-    localStorage.setItem("tab", "active")
+    localStorage.setItem('tab', 'active');
 
     setFilteredExtensions(initilaExtensions.filter((ext) => ext.isActive));
   }
 
+  // Show inActive extensions;
   function showInActiveExt() {
     setActiveTab('inActive');
-    localStorage.setItem("tab", "inActive")
+    localStorage.setItem('tab', 'inActive');
 
     setFilteredExtensions(initilaExtensions.filter((ext) => !ext.isActive));
   }
