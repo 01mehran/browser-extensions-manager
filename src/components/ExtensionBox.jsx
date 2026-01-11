@@ -6,7 +6,7 @@ export default function ExtensionBox({
   const { name, description, logo, isActive } = extension;
 
   return (
-    <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex h-[200px] flex-col justify-between rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
+    <main className="bg-primary-light-100 dark:bg-primary-dark-800 dark:ring-primary-dark-600 flex h-50 flex-col justify-between rounded-2xl p-4 shadow-[1px_1px_3px_rgba(0,0,0,.25)] dark:ring-[1px]">
       {/* Upper */}
       <header className="flex items-start gap-4">
         <img src={logo} alt="extensions logo" />
